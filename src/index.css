@@ -793,3 +793,107 @@ code {
   animation:s6 2s infinite ;
 }
 @keyframes s6 {to{transform: rotate(1turn)}}
+
+
+
+
+.footer-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: rgb(15,23,44);
+}
+
+.box-wrapper {
+  width: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 40px 15px 0px 0px ;
+}
+
+.box-wrapper > .box {
+  width: 23%;
+  margin: 20px;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.box-wrapper > .box h2 {
+  padding: 10px;
+  color: #FFA116;
+}
+
+.box-wrapper > .box p {
+  padding-left: 10px;
+  color: white;
+}
+
+.box-wrapper > .box a {
+  color: white;
+  text-decoration: none;
+  padding-left: 10px;
+}
+
+.box-wrapper > .box a:hover {
+  transition: 0.3s ease-in-out;
+  padding-left: 15px;
+  color: #FFA116;
+}
+
+.box-wrapper .box input {
+  margin-left: 10px;
+  height: 50px;
+  width: 90%;
+  padding-left: 10px;
+  outline: 1px solid #FFA116;
+  border: 1px solid white;
+}
+
+.box-wrapper .box button {
+  margin-left: 10px;
+  height: 30px;
+  width: 50%;
+  background-color: #FFA116;
+  color: white;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+
+.bottom {
+  width: 90%;
+  margin-bottom: 15px;
+}
+
+.bottom p {
+  padding: 10px;
+  color: white;
+}
+
+.social {
+  margin-left: 10px;
+  gap: 20px;
+  display: flex;
+}
+
+.social .fa-brands {
+  color: white;
+  font-size: 1.5rem;
+}
+
+@media screen and (max-width:650px) {
+  .box-wrapper {
+    flex-direction: column;
+  }
+  
+  .box-wrapper .box {
+    margin: 10px;
+    width: 100%;
+    height: fit-content;
+  }
+}
