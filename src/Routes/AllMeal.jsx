@@ -4,7 +4,6 @@ import { MealContext } from '../MealContext';
 import Spinner from '../Spinner/Spinner';
 
 const AllMeals = () => {
-
   const {  loading, meals, chicken, desserts, lambs, pastas, miscellaneousMeal } = useContext(MealContext);
 
   const [beef, setBeef] = useState(false);
