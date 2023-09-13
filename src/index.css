@@ -468,7 +468,7 @@ code {
 }
 
 .booking-form > form > input {
-  width: 94%;
+  min-width: 94%;
   height: 50px;
   padding-left: 10px;
   outline: none;
@@ -542,7 +542,7 @@ code {
 
   .booking-form > form > textarea, 
   .booking-form > form > button {
-    width: 100%;
+    min-width: 100%;
   }
 }
 
