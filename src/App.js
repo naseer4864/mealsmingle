@@ -1,3 +1,4 @@
+import { Fragment } from 'react';
 import {Routes, Route} from 'react-router-dom'
 import Navbar from './Navbar/Navbar';
 import Home from './Routes/Home';
@@ -6,8 +7,7 @@ import Services from './Routes/Services';
 import Contacts from './Routes/Contacts'
 import MealsDetails from './Routes/MealsDetails';
 import AllMeals from './Routes/AllMeal';
-import Cookies from './Routes/Cookies';
-import { Fragment } from 'react';
+import Footer from './Routes/Footer'
 
 
 function App() {
@@ -23,7 +23,7 @@ function App() {
         <Route path='/meals/:mealId' element={<MealsDetails/>}/>
       </Route>
     </Routes>
-    <Cookies/>
+    <Footer/>
     </Fragment>
     
   );
