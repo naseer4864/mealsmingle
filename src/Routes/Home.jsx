@@ -11,7 +11,6 @@ const formDefault = {
   people: "",
   datetime: "",
   message: "",
-  time : "",
 };
 
 const Home = () => {
@@ -35,7 +34,7 @@ const Home = () => {
   const [formData, setFormData] = useState(formDefault);
   const [isloading, setLoading] = useState(false);
   const [succesMsg, setSuccessMsg] = useState(false);
-  const { name, email, people, datetime, message, time } = formData;
+  const { name, email, people, datetime, message } = formData;
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -336,7 +335,7 @@ const Home = () => {
             </span>
             <span>
               <input
-                type="date"
+                type="text"
                 placeholder="Date & Time"
                 name="datetime"
                 value={datetime}
@@ -352,7 +351,6 @@ const Home = () => {
                 required
               />
             </span>
-            <input type="time"  name="time" value={time} onChange={handleChange} />
             <textarea
               placeholder="Special Request"
               name="message"
