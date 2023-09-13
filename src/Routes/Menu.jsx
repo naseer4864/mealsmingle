@@ -70,7 +70,7 @@ const Menu = () => {
     return ( 
         <div className="services-container">
           <p>Food Menu</p>
-          <h2>Most Popular Items</h2>
+          <h1>Most Popular Items</h1>
            <div className="categories-container">
         <div className="categories">
           <ul>
