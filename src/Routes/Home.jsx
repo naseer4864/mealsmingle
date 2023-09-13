@@ -3,6 +3,15 @@ import { MealContext } from "../MealContext";
 import Spinner from "../Spinner/Spinner";
 import ImageSwiper from "../Swapper/Swapper";
 import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
+
+const formDefault = {
+  name: "",
+  email: "",
+  people: "",
+  datetime: "",
+  message: "",
+};
 
 const Home = () => {
   const {
@@ -14,13 +23,54 @@ const Home = () => {
     miscellaneousMeal,
     loading,
   } = useContext(MealContext);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const [beef, setBeef] = useState(true);
   const [chiecken, setChicken] = useState(false);
   const [dessert, setDessert] = useState(false);
   const [lamb, setLamb] = useState(false);
   const [pasta, setPasta] = useState(false);
   const [Miscellaneous, setMiscellaneous] = useState(false);
+
+  const [formData, setFormData] = useState(formDefault);
+  const [isloading, setLoading] = useState(false);
+  const [succesMsg, setSuccessMsg] = useState(false);
+  const { name, email, people, datetime, message } = formData;
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+
+    try {
+      const response = await axios.post(
+        "https://getform.io/f/4659f106-e544-4545-8c44-17e433a1265a",
+        formData,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+
+      if (response.status === 200) {
+        setSuccessMsg("Reservation Booked");
+        setFormData(formDefault);
+        setTimeout(() => {
+          setSuccessMsg(false);
+        }, 3000);
+        setLoading(false);
+      } else {
+        setLoading(false);
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      setLoading(false);
+    }
+  };
 
   const handleBeef = () => {
     setBeef(true);
@@ -87,7 +137,7 @@ const Home = () => {
               A symphony of flavors danced on our taste buds, as each bite of
               the exquisite meal transported you to a culinary paradise.
             </p>
-            <button onClick={() => navigate('/Contacts')}>BOOK A TABLE</button>
+            <button onClick={() => navigate("/Contacts")}>BOOK A TABLE</button>
           </div>
           <img src="https://i.ibb.co/5kpWvSB/hero.png" alt="" />
         </div>
@@ -263,17 +313,53 @@ const Home = () => {
         <div className="booking-form">
           <p>Reservation </p>
           <h1>Book A Table Online</h1>
-          <form>
+          <form onSubmit={handleSubmit}>
+            {isloading && <Spinner />}
             <span>
-              <input type="text" placeholder="Your Name" />
-              <input type="text" placeholder="Your Email" />
+              <input
+                type="text"
+                placeholder="Your Name"
+                name="name"
+                value={name}
+                onChange={handleChange}
+                required
+              />
+              <input
+                type="text"
+                placeholder="Your Email"
+                name="email"
+                value={email}
+                onChange={handleChange}
+                required
+              />
             </span>
             <span>
-              <input type="text" placeholder="Date & Time" />
-              <input type="text" placeholder="No Of People" />
+              <input
+                type="text"
+                placeholder="Date & Time"
+                name="datetime"
+                value={datetime}
+                onChange={handleChange}
+                required
+              />
+              <input
+                type="text"
+                placeholder="No Of People"
+                name="people"
+                value={people}
+                onChange={handleChange}
+                required
+              />
             </span>
-            <textarea placeholder="Special Request"></textarea>
+            <textarea
+              placeholder="Special Request"
+              name="message"
+              value={message}
+              onChange={handleChange}
+              required
+            ></textarea>
             <button>BOOK NOW</button>
+            {succesMsg && <p>{succesMsg}</p>}
           </form>
         </div>
       </div>

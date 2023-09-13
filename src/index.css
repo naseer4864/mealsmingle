@@ -884,6 +884,11 @@ code {
 .social .fa-brands {
   color: white;
   font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.social .fa-brands:hover {
+  color: #FFA116;
 }
 
 @media screen and (max-width:650px) {
@@ -896,4 +901,25 @@ code {
     width: 100%;
     height: fit-content;
   }
+}
+
+
+.scroll-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #FFA116;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.scroll-to-top:hover {
+  background-color: #dd9b38;
 }

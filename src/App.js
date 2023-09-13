@@ -9,6 +9,7 @@ import MealsDetails from './Routes/MealsDetails';
 import AllMeals from './Routes/AllMeal';
 import Footer from './Routes/Footer'
 import { useLocation } from 'react-router-dom';
+import ScrollToTopButton from './Routes/ScrollToTopButton';
 
 function App() {
   const location = useLocation()
@@ -28,6 +29,7 @@ function App() {
       </Route>
     </Routes>
     <Footer/>
+    <ScrollToTopButton/>
     </Fragment>
     
   );
