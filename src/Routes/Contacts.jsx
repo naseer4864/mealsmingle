@@ -8,13 +8,14 @@ const formDefault = {
   people: "",
   datetime: "",
   message: "",
+  time: ""
 };
 
 const Contacts = () => {
   const [formData, setFormData] = useState(formDefault);
   const [loading, setLoading] = useState(false);
   const [succesMsg, setSuccessMsg] = useState(false);
-  const { name, email, people, datetime, message } = formData;
+  const { name, email, people, datetime, message, time } = formData;
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -108,7 +109,7 @@ const Contacts = () => {
             </span>
             <span>
               <input
-                type="text"
+                type="date"
                 placeholder="Date & Time"
                 name="datetime"
                 value={datetime}
@@ -124,6 +125,7 @@ const Contacts = () => {
                 required
               />
             </span>
+            <input type="time"  name="time" value={time} onChange={handleChange} />
             <textarea
               placeholder="Special Request"
               name="message"

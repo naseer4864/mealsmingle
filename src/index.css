@@ -467,6 +467,14 @@ code {
   border: none;
 }
 
+.booking-form > form > input {
+  width: 94%;
+  height: 50px;
+  padding-left: 10px;
+  outline: none;
+  border: none;
+}
+
 
 .booking-form > form > textarea {
   width: 94%;
@@ -525,6 +533,10 @@ code {
   }
 
   .booking-form > form > span > input {
+    width: 100%;
+  }
+
+  .booking-form > form > input {
     width: 100%;
   }
 
@@ -923,3 +935,4 @@ code {
 .scroll-to-top:hover {
   background-color: #dd9b38;
 }
+
