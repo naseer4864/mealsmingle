@@ -140,7 +140,7 @@ const Home = () => {
             </p>
             <button onClick={() => navigate("/Contacts")}>BOOK A TABLE</button>
           </div>
-          <img src="https://i.ibb.co/5kpWvSB/hero.png" alt="" />
+          <img src="https://i.ibb.co/5kpWvSB/hero.png" alt="" loading="lazy" />
         </div>
       </div>
       <div className="offer-container">
@@ -200,7 +200,7 @@ const Home = () => {
                     key={meal.idMeal}
                     className="beaf-item"
                   >
-                    <img src={meal.strMealThumb} alt={meal.strMeal} />
+                   <img src={meal.strMealThumb} alt={meal.strMeal} loading="lazy" />
                     <h3>{meal.strMeal}</h3>
                   </Link>
                 ))}
@@ -215,7 +215,7 @@ const Home = () => {
                     key={meal.idMeal}
                     className="beaf-item"
                   >
-                    <img src={meal.strMealThumb} alt={meal.strMeal} />
+                    <img src={meal.strMealThumb} alt={meal.strMeal} loading="lazy" />
                     <h3>{meal.strMeal}</h3>
                   </Link>
                 ))}
@@ -230,7 +230,7 @@ const Home = () => {
                     key={meal.idMeal}
                     className="beaf-item"
                   >
-                    <img src={meal.strMealThumb} alt={meal.strMeal} />
+                   <img src={meal.strMealThumb} alt={meal.strMeal} loading="lazy" />
                     <h3>{meal.strMeal}</h3>
                   </Link>
                 ))}
@@ -245,7 +245,7 @@ const Home = () => {
                     key={meal.idMeal}
                     className="beaf-item"
                   >
-                    <img src={meal.strMealThumb} alt={meal.strMeal} />
+                   <img src={meal.strMealThumb} alt={meal.strMeal} loading="lazy" />
                     <h3>{meal.strMeal}</h3>
                   </Link>
                 ))}
@@ -260,7 +260,7 @@ const Home = () => {
                     key={meal.idMeal}
                     className="beaf-item"
                   >
-                    <img src={meal.strMealThumb} alt={meal.strMeal} />
+                    <img src={meal.strMealThumb} alt={meal.strMeal} loading="lazy" />
                     <h3>{meal.strMeal}</h3>
                   </Link>
                 ))}
@@ -275,7 +275,7 @@ const Home = () => {
                     key={meal.idMeal}
                     className="beaf-item"
                   >
-                    <img src={meal.strMealThumb} alt={meal.strMeal} />
+                    <img src={meal.strMealThumb} alt={meal.strMeal} loading="lazy" />
                     <h3>{meal.strMeal}</h3>
                   </Link>
                 ))}

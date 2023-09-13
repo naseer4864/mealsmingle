@@ -93,7 +93,7 @@ const AllMeals = () => {
                     key={meal.idMeal}
                     className="beaf-item"
                   >
-                    <img src={meal.strMealThumb} alt={meal.strMeal} />
+                    <img src={meal.strMealThumb} alt={meal.strMeal} loading="lazy" />
                     <h3>{meal.strMeal}</h3>
                   </Link>
                 ))}
@@ -108,7 +108,7 @@ const AllMeals = () => {
                     key={meal.idMeal}
                     className="beaf-item"
                   >
-                    <img src={meal.strMealThumb} alt={meal.strMeal} />
+                    <img src={meal.strMealThumb} alt={meal.strMeal} loading="lazy" />
                     <h3>{meal.strMeal}</h3>
                   </Link>
                 ))}
@@ -123,7 +123,7 @@ const AllMeals = () => {
                     key={meal.idMeal}
                     className="beaf-item"
                   >
-                    <img src={meal.strMealThumb} alt={meal.strMeal} />
+                    <img src={meal.strMealThumb} alt={meal.strMeal} loading="lazy" />
                     <h3>{meal.strMeal}</h3>
                   </Link>
                 ))}
@@ -138,7 +138,7 @@ const AllMeals = () => {
                     key={meal.idMeal}
                     className="beaf-item"
                   >
-                    <img src={meal.strMealThumb} alt={meal.strMeal} />
+                    <img src={meal.strMealThumb} alt={meal.strMeal} loading="lazy" />
                     <h3>{meal.strMeal}</h3>
                   </Link>
                 ))}
@@ -153,7 +153,7 @@ const AllMeals = () => {
                     key={meal.idMeal}
                     className="beaf-item"
                   >
-                    <img src={meal.strMealThumb} alt={meal.strMeal} />
+                   <img src={meal.strMealThumb} alt={meal.strMeal} loading="lazy" />
                     <h3>{meal.strMeal}</h3>
                   </Link>
                 ))}
@@ -168,7 +168,7 @@ const AllMeals = () => {
                     key={meal.idMeal}
                     className="beaf-item"
                   >
-                    <img src={meal.strMealThumb} alt={meal.strMeal} />
+                   <img src={meal.strMealThumb} alt={meal.strMeal} loading="lazy" />
                     <h3>{meal.strMeal}</h3>
                   </Link>
                 ))}
