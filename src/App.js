@@ -1,4 +1,4 @@
-import { Fragment } from 'react';
+import { Fragment, useEffect } from 'react';
 import {Routes, Route} from 'react-router-dom'
 import Navbar from './Navbar/Navbar';
 import Home from './Routes/Home';
@@ -8,9 +8,13 @@ import Contacts from './Routes/Contacts'
 import MealsDetails from './Routes/MealsDetails';
 import AllMeals from './Routes/AllMeal';
 import Footer from './Routes/Footer'
-
+import { useLocation } from 'react-router-dom';
 
 function App() {
+  const location = useLocation()
+  useEffect(() => {
+    window.scrollTo(0,0)
+  }, [location])
   return (
     <Fragment>
     <Routes>

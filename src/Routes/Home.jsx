@@ -2,7 +2,7 @@ import { useContext, useState } from "react";
 import { MealContext } from "../MealContext";
 import Spinner from "../Spinner/Spinner";
 import ImageSwiper from "../Swapper/Swapper";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Home = () => {
   const {
@@ -14,6 +14,7 @@ const Home = () => {
     miscellaneousMeal,
     loading,
   } = useContext(MealContext);
+  const navigate = useNavigate()
   const [beef, setBeef] = useState(true);
   const [chiecken, setChicken] = useState(false);
   const [dessert, setDessert] = useState(false);
@@ -86,7 +87,7 @@ const Home = () => {
               A symphony of flavors danced on our taste buds, as each bite of
               the exquisite meal transported you to a culinary paradise.
             </p>
-            <button>BOOK A TABLE</button>
+            <button onClick={() => navigate('/Contacts')}>BOOK A TABLE</button>
           </div>
           <img src="https://i.ibb.co/5kpWvSB/hero.png" alt="" />
         </div>
