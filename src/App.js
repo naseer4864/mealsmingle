@@ -6,10 +6,13 @@ import Services from './Routes/Services';
 import Contacts from './Routes/Contacts'
 import MealsDetails from './Routes/MealsDetails';
 import AllMeals from './Routes/AllMeal';
+import Cookies from './Routes/Cookies';
+import { Fragment } from 'react';
 
 
 function App() {
   return (
+    <Fragment>
     <Routes>
       <Route path='/' element={<Navbar/>}>
         <Route index element={<Home/>}/>
@@ -20,6 +23,8 @@ function App() {
         <Route path='/meals/:mealId' element={<MealsDetails/>}/>
       </Route>
     </Routes>
+    <Cookies/>
+    </Fragment>
     
   );
 }
