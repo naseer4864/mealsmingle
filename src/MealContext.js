@@ -1,5 +1,4 @@
-import React, { createContext, useState, useEffect } from "react";
-
+import React, { createContext, useEffect, useState } from "react";
 
 export const MealContext = createContext();
 
@@ -20,10 +19,10 @@ const MealContextProvider = ({ children }) => {
         throw new Error('Failed to fetch meal details');
       }
       const data = await response.json();
-      console.log(data)
 
       if (data.meals && data.meals.length > 0) {
         const meal = data.meals[0];
+        console.log(data)
         setMealDetails(meal);
         setLoading(false);
       } else {
@@ -35,20 +34,17 @@ const MealContextProvider = ({ children }) => {
       setLoading(false);
     }
   };
-  
 
   useEffect(() => {
-    const fetchMeals = async () => {
+    const fetchMeals = async (category, setState) => {
       try {
-        const response = await fetch(
-          "https://www.themealdb.com/api/json/v1/1/filter.php?c=Beef"
-        );
+        const response = await fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${category}`);
         if (!response.ok) {
-          throw new Error("Failed to fetch meals for Beef");
+          throw new Error(`Failed to fetch meals for ${category}`);
         }
         const data = await response.json();
-        const beefMeals = data.meals.slice(0, 9);
-        setMeals(beefMeals);
+        const categoryMeals = data.meals.slice(0, 9);
+        setState(categoryMeals);
         setLoading(false);
       } catch (error) {
         console.error(error);
@@ -56,117 +52,12 @@ const MealContextProvider = ({ children }) => {
       }
     };
 
-    fetchMeals();
-  }, []);
-
-  useEffect(() => {
-    const fetchMeals = async () => {
-      try {
-        const response = await fetch(
-          "https://www.themealdb.com/api/json/v1/1/filter.php?c=Chicken"
-        );
-        if (!response.ok) {
-          throw new Error("Failed to fetch meals for Chicken");
-        }
-        const data = await response.json();
-        const chickenMeals = data.meals.slice(0, 9);
-        setChicken(chickenMeals);
-        setLoading(false);
-      } catch (error) {
-        console.error(error);
-        setLoading(false);
-      }
-    };
-
-    fetchMeals();
-  }, []);
-
-  useEffect(() => {
-    const fetchMeals = async () => {
-      try {
-        const response = await fetch(
-          "https://www.themealdb.com/api/json/v1/1/filter.php?c=Dessert"
-        );
-        if (!response.ok) {
-          throw new Error("Failed to fetch meals for Dessert");
-        }
-        const data = await response.json();
-        const dessertMeals = data.meals.slice(0, 9);
-        setDessert(dessertMeals);
-        setLoading(false);
-      } catch (error) {
-        console.error(error);
-        setLoading(false);
-      }
-    };
-
-    fetchMeals();
-  }, []);
-
-  useEffect(() => {
-    const fetchMeals = async () => {
-      try {
-        const response = await fetch(
-          "https://www.themealdb.com/api/json/v1/1/filter.php?c=Lamb"
-        );
-        if (!response.ok) {
-          throw new Error("Failed to fetch meals for Lamb");
-        }
-        const data = await response.json();
-        const lambMeals = data.meals.slice(0, 9);
-        setLamb(lambMeals);
-        setLoading(false);
-      } catch (error) {
-        console.error(error);
-        setLoading(false);
-      }
-    };
-
-    fetchMeals();
-  }, []);
-
-  useEffect(() => {
-    const fetchMeals = async () => {
-      try {
-        const response = await fetch(
-          "https://www.themealdb.com/api/json/v1/1/filter.php?c=Pasta"
-        );
-        if (!response.ok) {
-          throw new Error("Failed to fetch meals for Pasta");
-        }
-        const data = await response.json();
-        const pastaMeals = data.meals.slice(0, 9);
-        setPasta(pastaMeals);
-        setLoading(false);
-      } catch (error) {
-        console.error(error);
-        setLoading(false);
-      }
-    };
-
-    fetchMeals();
-  }, []);
-
-  useEffect(() => {
-    const fetchMeals = async () => {
-      try {
-        const response = await fetch(
-          "https://www.themealdb.com/api/json/v1/1/filter.php?c=Miscellaneous"
-        );
-        if (!response.ok) {
-          throw new Error("Failed to fetch meals for Miscellaneous");
-        }
-        const data = await response.json();
-        const miscellaneousMeals = data.meals.slice(0, 9);
-        setMiscellaneous(miscellaneousMeals);
-        setLoading(false);
-      } catch (error) {
-        console.error(error);
-        setLoading(false);
-      }
-    };
-
-    fetchMeals();
+    fetchMeals("Beef", setMeals);
+    fetchMeals("Chicken", setChicken);
+    fetchMeals("Dessert", setDessert);
+    fetchMeals("Lamb", setLamb);
+    fetchMeals("Pasta", setPasta);
+    fetchMeals("Miscellaneous", setMiscellaneous);
   }, []);
 
   return (
@@ -180,8 +71,7 @@ const MealContextProvider = ({ children }) => {
         miscellaneousMeal,
         loading,
         mealDetails,
-        fetchMealDetails
-        // mealPrice,
+        fetchMealDetails,
       }}
     >
       {children}
